@@ -20,26 +20,22 @@ function handleOrientation(event) {
   if (x >  90) { x =  90};
   if (x < -90) { x = -90};
 
-  // To make computation easier we shift the range of 
-  // x and y to [0,180]
-  x += 90;
-  y += 90;
-
-  // 10 is half the size of the ball
-  // It center the positioning point to the center of the ball
-  
 }
-var mnoznik = setInterval(mnoznikv, 100);
+let i = 1;
+let xx = 0;
+let yy = 0;
+let mnoznik = setInterval(mnoznikv, 10);
 
-function mnoznikv()
+  function mnoznikv()
 {
     i = 0.01;
-   
-    ball.style.top  = (400 + x ) + "px";
-    ball.style.left = (400 + y ) + "px";
-    console.log(x);
-    //console.log(yy);
+    
+    xx += x*i;
+    yy += y*i;
+    ball.style.top  = (400 + xx) + "px";
+    ball.style.left = (400 + yy) + "px";
 }
+
 
 window.addEventListener('deviceorientation', handleOrientation);
 
